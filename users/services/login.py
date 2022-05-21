@@ -38,11 +38,13 @@ class LoginService:
         return LoginResponse(**{"message": "Welcome!", "token": token})
 
     def _user_activity_logs(self, user_id, url):
-        user_log = self._db.query(UserLogsModel).filter(UserLogsModel.user_id == user_id).first()
+        user_log = (
+            self._db.query(UserLogsModel).filter(UserLogsModel.user_id == user_id).first()
+        )
         user_log_data = {
             "user_id": user_id,
             "request_url": url,
-            "login": generate_current_datetime()
+            "login": generate_current_datetime(),
         }
         try:
             if not user_log:
@@ -54,4 +56,6 @@ class LoginService:
                 user_log.updated_at = generate_current_datetime()
             self._db.commit()
         except Exception:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=INVALID_DATA)
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST, detail=INVALID_DATA
+            )

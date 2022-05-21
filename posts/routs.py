@@ -12,20 +12,24 @@ post_router = APIRouter(tags=["Post"], prefix="/post")
 like_router = APIRouter(tags=["Like"], prefix="/like")
 
 
-@post_router.post("/v1/create", status_code=status.HTTP_201_CREATED, response_model=PostCreateResponse)
+@post_router.post(
+    "/v1/create", status_code=status.HTTP_201_CREATED, response_model=PostCreateResponse
+)
 def create_post(
     data: PostRequest,
     token: TokenData = Depends(AuthUser()),
-    post_service: PostCRUDService = Depends(PostCRUDService)
+    post_service: PostCRUDService = Depends(PostCRUDService),
 ):
     return post_service.create_post(data, token)
 
 
-@like_router.post("/v1/{post_id}", status_code=status.HTTP_201_CREATED, response_model=MessageResponse)
+@like_router.post(
+    "/v1/{post_id}", status_code=status.HTTP_201_CREATED, response_model=MessageResponse
+)
 def like_post(
     post_id: str,
     token: TokenData = Depends(AuthUser()),
-    like_service: LikePostService = Depends(LikePostService)
+    like_service: LikePostService = Depends(LikePostService),
 ):
     return like_service.like_post(post_id, token)
 
@@ -34,16 +38,18 @@ def like_post(
 def unlike_post(
     post_id: str,
     token: TokenData = Depends(AuthUser()),
-    like_service: LikePostService = Depends(LikePostService)
+    like_service: LikePostService = Depends(LikePostService),
 ):
     return like_service.unlike_post(post_id, token)
 
 
-@like_router.get("/v1/statistics", status_code=status.HTTP_200_OK, response_model=MessageResponse)
+@like_router.get(
+    "/v1/statistics", status_code=status.HTTP_200_OK, response_model=MessageResponse
+)
 def unlike_post(
     from_date: Optional[str] = None,
     to_date: Optional[str] = None,
     like_service: LikePostService = Depends(LikePostService),
-    token: TokenData = Depends(AuthUser())
+    token: TokenData = Depends(AuthUser()),
 ):
     return like_service.like_count(from_date, to_date)

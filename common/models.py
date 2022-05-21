@@ -21,9 +21,13 @@ class CreateDateMixin:
 
 
 class UpdateDateMixin:
-    updated_at = Column(Date, default=generate_current_date, onupdate=generate_current_date)
+    updated_at = Column(
+        Date, default=generate_current_date, onupdate=generate_current_date
+    )
 
 
 class LoginUserDateMixin(UpdateDateMixin):
-    updated_at = Column(DateTime, default=generate_current_date, onupdate=generate_current_datetime)
+    updated_at = Column(
+        DateTime, default=generate_current_date, onupdate=generate_current_datetime
+    )
     login = Column(DateTime, nullable=False)

@@ -1,7 +1,11 @@
 from fastapi import Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
-from common.default_message import USER_ALREADY_EXISTS, REGISTRATION_SUCCESS, DATA_NOT_FOUND
+from common.default_message import (
+    USER_ALREADY_EXISTS,
+    REGISTRATION_SUCCESS,
+    DATA_NOT_FOUND,
+)
 from common.schemas import MessageResponse, TokenData
 from common.service.password_hash import HashPassword
 from settings import get_db
@@ -26,16 +30,24 @@ class UserCRUDService:
             self._db.add(user_obj)
             self._db.commit()
         except Exception as e:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=USER_ALREADY_EXISTS)
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST, detail=USER_ALREADY_EXISTS
+            )
         return MessageResponse(**{"message": REGISTRATION_SUCCESS})
 
     def last_activity(self, token: TokenData):
-        last_visit = self._db.query(UserLogsModel).filter(UserLogsModel.user_id == token.user_id).first()
+        last_visit = (
+            self._db.query(UserLogsModel)
+            .filter(UserLogsModel.user_id == token.user_id)
+            .first()
+        )
         if not last_visit:
-            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=DATA_NOT_FOUND)
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND, detail=DATA_NOT_FOUND
+            )
         data = {
             "login": str(last_visit.login),
             "updated_at": str(last_visit.updated_at),
-            "request_url": last_visit.request_url
+            "request_url": last_visit.request_url,
         }
         return LastVisitResponse(**data)

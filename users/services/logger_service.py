@@ -15,9 +15,13 @@ class LoggerService:
 
     def refresh_log(self):
         if self._token:
-            token_data = verify_token(self._token.split(' ')[1])
+            token_data = verify_token(self._token.split(" ")[1])
             db = SessionLocal()
-            user_log = db.query(UserLogsModel).filter(UserLogsModel.user_id == token_data.user_id).first()
+            user_log = (
+                db.query(UserLogsModel)
+                .filter(UserLogsModel.user_id == token_data.user_id)
+                .first()
+            )
             user_log.request_url = self._url
             user_log.login = generate_current_datetime()
             user_log.updated_at = generate_current_datetime()

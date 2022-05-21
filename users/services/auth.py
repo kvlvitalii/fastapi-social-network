@@ -13,5 +13,6 @@ class AuthUser:
             return token_data
         else:
             raise HTTPException(
-                status_code=status.HTTP_403_FORBIDDEN, detail=f"Sorry but you don't have access."
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail=f"Sorry but you don't have access.",
             )

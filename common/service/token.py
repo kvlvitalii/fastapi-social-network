@@ -16,7 +16,9 @@ def create_access_token(data: dict):
     return encoded_jwt
 
 
-def verify_token(token: str,):
+def verify_token(
+    token: str,
+):
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="Could not validate credentials.",

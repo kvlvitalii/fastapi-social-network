@@ -20,5 +20,5 @@ class UserLogsModel(Base, LoginUserDateMixin):
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=generate_uuid)
     user_id = Column(UUID, ForeignKey("users.id"), nullable=False)
-    user = relationship('UserModel', backref='logs', uselist=False)
+    user = relationship("UserModel", backref="logs", uselist=False)
     request_url = Column(String)

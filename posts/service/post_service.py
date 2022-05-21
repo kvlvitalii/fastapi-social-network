@@ -20,11 +20,15 @@ class PostCRUDService:
             post_data = {
                 "user_id": token.user_id,
                 "header": data.header,
-                "text": data.text
+                "text": data.text,
             }
             post_obj = PostModel(**post_data)
             self._db.add(post_obj)
             self._db.commit()
         except Exception:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=INVALID_DATA)
-        return PostCreateResponse(**{"message": POST_CREATED, "post_id": str(post_obj.id)})
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST, detail=INVALID_DATA
+            )
+        return PostCreateResponse(
+            **{"message": POST_CREATED, "post_id": str(post_obj.id)}
+        )
