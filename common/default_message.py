@@ -1,0 +1,5 @@
+INVALID_DATA = "Invalid data."
+USER_ALREADY_EXISTS = "User with this email address already exists"
+REGISTRATION_SUCCESS = "Successful registration!"
+POST_CREATED = "Post was created!"
+DATA_NOT_FOUND = "Data not found!"
