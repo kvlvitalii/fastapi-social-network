@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "71b89c46-d7c0-4108-8367-599484a37d98",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16206343"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "/user/v1/signup",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"test@test.te\",\n  \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/v1/signup",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"v1",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user/v1/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"test@test.te\",\n  \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/v1/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user/v1/last_activity",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC50ZSIsInVzZXJfaWQiOiJlZThjYmIwZS04MThiLTRlOTEtYjBhMi05ZTIwODgxYWNiYTgiLCJleHAiOjE2NTMyMTQ1ODh9.x6X2Uv2wiL0-vaVgdwWXVh9JdNG9Y52ZOLz6atzHJX8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"header\": \"Test\",\n  \"text\": \"Text for post.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/v1/last_activity",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"v1",
+								"last_activity"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "/post/v1/create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC50ZSIsInVzZXJfaWQiOiJlZThjYmIwZS04MThiLTRlOTEtYjBhMi05ZTIwODgxYWNiYTgiLCJleHAiOjE2NTMyMTQ1ODh9.x6X2Uv2wiL0-vaVgdwWXVh9JdNG9Y52ZOLz6atzHJX8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"header\": \"Test\",\n  \"text\": \"Text for post.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/post/v1/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"post",
+								"v1",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Like",
+			"item": [
+				{
+					"name": "/like/v1/post-id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC50ZSIsInVzZXJfaWQiOiJlZThjYmIwZS04MThiLTRlOTEtYjBhMi05ZTIwODgxYWNiYTgiLCJleHAiOjE2NTMyMTQ1ODh9.x6X2Uv2wiL0-vaVgdwWXVh9JdNG9Y52ZOLz6atzHJX8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/like/v1/2ef2844c-b2a5-4aaf-a96c-551d55d88b6a",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"like",
+								"v1",
+								"2ef2844c-b2a5-4aaf-a96c-551d55d88b6a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/like/v1/post-id/unlike",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC50ZSIsInVzZXJfaWQiOiJlZThjYmIwZS04MThiLTRlOTEtYjBhMi05ZTIwODgxYWNiYTgiLCJleHAiOjE2NTMyMTQ1ODh9.x6X2Uv2wiL0-vaVgdwWXVh9JdNG9Y52ZOLz6atzHJX8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/like/v1/2ef2844c-b2a5-4aaf-a96c-551d55d88b6a/unlike",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"like",
+								"v1",
+								"2ef2844c-b2a5-4aaf-a96c-551d55d88b6a",
+								"unlike"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/like/v1/statistics/?from_date=&to_date=",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC50ZSIsInVzZXJfaWQiOiJlZThjYmIwZS04MThiLTRlOTEtYjBhMi05ZTIwODgxYWNiYTgiLCJleHAiOjE2NTMyMTQ1ODh9.x6X2Uv2wiL0-vaVgdwWXVh9JdNG9Y52ZOLz6atzHJX8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/like/v1/statistics/?from_date=2022-05-01&to_date=2022-06-29",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"like",
+								"v1",
+								"statistics",
+								""
+							],
+							"query": [
+								{
+									"key": "from_date",
+									"value": "2022-05-01"
+								},
+								{
+									"key": "to_date",
+									"value": "2022-06-29"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
