@@ -44,7 +44,7 @@ class LoginService:
         user_log_data = {
             "user_id": user_id,
             "request_url": url,
-            "login": generate_current_datetime(),
+            "last_login_at": generate_current_datetime(),
         }
         try:
             if not user_log:
@@ -52,8 +52,8 @@ class LoginService:
                 self._db.add(user_log_obj)
             else:
                 user_log.request_url = url
-                user_log.login = generate_current_datetime()
-                user_log.updated_at = generate_current_datetime()
+                user_log.last_login_at = generate_current_datetime()
+                user_log.last_request_at = generate_current_datetime()
             self._db.commit()
         except Exception:
             raise HTTPException(

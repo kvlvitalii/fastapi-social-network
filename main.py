@@ -5,8 +5,8 @@ from fastapi import FastAPI
 from starlette.middleware.base import BaseHTTPMiddleware
 
 from common.service.user_activity_middleware import UserActivityMiddleware
-from posts.routs import post_router, like_router
-from users.routs import user_router
+from posts.routes import post_router, like_router
+from users.routes import user_router
 
 dotenv.load_dotenv()
 

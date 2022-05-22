@@ -7,11 +7,11 @@ class CreateUserRequest(BaseModel):
 
 
 class LoginUser(BaseModel):
-    email: str
+    email: EmailStr
     password: str
 
 
 class LastVisitResponse(BaseModel):
-    login: str
-    updated_at: str
+    last_login_at: str
+    last_request_at: str
     request_url: str

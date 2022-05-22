@@ -4,7 +4,7 @@ from fastapi import HTTPException, status
 from common.default_message import INVALID_DATA
 
 
-def datatime_validator(data: str) -> datetime:
+def datetime_validator(data: str) -> datetime:
     try:
         data = datetime.strptime(data, "%Y-%m-%d")
         return data

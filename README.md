@@ -5,7 +5,7 @@
 python3 -m venv ./venv
 . venv/bin/activate
 pip3 install -r requirements.txt
-cp .env-exampl ./.env 
+cp .env-example ./.env 
 #conect to database change env variables 
 alembic upgrade head
 python3 main.py
@@ -13,9 +13,9 @@ python3 main.py
 
 #### Run with Docker
 ```bash
-cp .env-exampl ./.env 
-docker-compose up --build
+cp .env-example ./.env 
+docker-compose up 
 ```
 
-### Postman-collections
+### Postman collections
 In docs you find collections for postman

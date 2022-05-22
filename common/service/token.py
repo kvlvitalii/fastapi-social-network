@@ -8,7 +8,7 @@ from config import ACCESS_TOKEN_EXPIRE_MINUTES, SECRET_KEY_JWT, ALGORITHM
 
 
 def create_access_token(data: dict):
-    expires_delta = timedelta(minutes=int(ACCESS_TOKEN_EXPIRE_MINUTES))
+    expires_delta = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     to_encode = data.copy()
     expire = datetime.utcnow() + expires_delta
     to_encode.update({"exp": expire})

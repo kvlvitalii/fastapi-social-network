@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from common.default_message import DATA_NOT_FOUND, INVALID_DATA
 from common.models import generate_current_date
 from common.schemas import MessageResponse, TokenData
-from common.validators import datatime_validator
+from common.validators import datetime_validator
 from posts.models import PostLikeModel
 from settings import get_db
 
@@ -46,17 +46,17 @@ class LikePostService:
     def like_count(self, from_date, to_date):
         try:
             if not from_date:
-                from_date = datatime_validator(generate_current_date())
+                from_date = datetime_validator(generate_current_date())
                 query_like = self._db.query(PostLikeModel).filter(
                     PostLikeModel.created_at >= from_date
                 )
             else:
-                from_date = datatime_validator(from_date)
+                from_date = datetime_validator(from_date)
                 query_like = self._db.query(PostLikeModel).filter(
                     PostLikeModel.created_at >= from_date
                 )
             if to_date:
-                datetime_object = datatime_validator(to_date)
+                datetime_object = datetime_validator(to_date)
                 to_date = datetime_object
                 query_like = query_like.filter(PostLikeModel.created_at <= to_date)
             result = query_like.count()

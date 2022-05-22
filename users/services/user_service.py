@@ -46,8 +46,8 @@ class UserCRUDService:
                 status_code=status.HTTP_404_NOT_FOUND, detail=DATA_NOT_FOUND
             )
         data = {
-            "login": str(last_visit.login),
-            "updated_at": str(last_visit.updated_at),
+            "last_login_at": str(last_visit.last_login_at),
+            "last_request_at": str(last_visit.last_request_at),
             "request_url": last_visit.request_url,
         }
         return LastVisitResponse(**data)
