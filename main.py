@@ -22,5 +22,5 @@ app.include_router(user_router)
 app.include_router(post_router)
 app.include_router(like_router)
 
-# if __name__ == "__main__":
-#     uvicorn.run(app, host="0.0.0.0", log_level="info")
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", log_level="info")

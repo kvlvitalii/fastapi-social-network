@@ -7,7 +7,9 @@ cfgv==3.3.1
 click==8.0.3
 cryptography==36.0.1
 distlib==0.3.4
+dnspython==2.2.1
 ecdsa==0.17.0
+email-validator==1.2.1
 fastapi==0.73.0
 fastapi-utils==0.2.1
 filelock==3.4.2

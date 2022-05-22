@@ -1,6 +1,15 @@
 version: "3.3"
 
 services:
+  app:
+    container_name: app
+    build: .
+    command: bash -c "alembic upgrade head && uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+    ports:
+      - 8000:8000
+    volumes:
+      - ./common:/app/common
+
   database:
     image: postgres:12.8
     ports:

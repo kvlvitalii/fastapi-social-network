@@ -23,6 +23,5 @@ class LoggerService:
                 .first()
             )
             user_log.request_url = self._url
-            user_log.login = generate_current_datetime()
             user_log.updated_at = generate_current_datetime()
             db.commit()
