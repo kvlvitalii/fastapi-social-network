@@ -89,7 +89,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC50ZSIsInVzZXJfaWQiOiI0MzAwZmFmNC1kZTdiLTQyNzYtOWM3ZS1iNGM3YjlhNWEzZDgiLCJleHAiOjE2NTMyNDIyMjd9.MHpM83MFpVzYortNSyXzurPvE3xX2HjzYlZgiJAZ-HM",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC50ZSIsInVzZXJfaWQiOiI0MzAwZmFmNC1kZTdiLTQyNzYtOWM3ZS1iNGM3YjlhNWEzZDgiLCJleHAiOjE2NTMzMjI5MjB9.goGK6Kn1Mkcj-PHVNQeTTfqJ7wh-uIbqBQZjbky3gBw",
 									"type": "string"
 								}
 							]
@@ -106,7 +106,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/user/v1/last_activity",
+							"raw": "http://127.0.0.1:8000/user/v1/last-activity",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -118,7 +118,54 @@
 							"path": [
 								"user",
 								"v1",
-								"last_activity"
+								"last-activity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user/v1/last-activity-by-id/user-id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC50ZSIsInVzZXJfaWQiOiI0MzAwZmFmNC1kZTdiLTQyNzYtOWM3ZS1iNGM3YjlhNWEzZDgiLCJleHAiOjE2NTMzMjI5MjB9.goGK6Kn1Mkcj-PHVNQeTTfqJ7wh-uIbqBQZjbky3gBw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/v1/last-activity-by-id/4300faf4-de7b-4276-9c7e-b4c7b9a5a3d8",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"v1",
+								"last-activity-by-id",
+								"4300faf4-de7b-4276-9c7e-b4c7b9a5a3d8"
 							]
 						}
 					},

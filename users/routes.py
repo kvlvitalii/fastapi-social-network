@@ -29,10 +29,20 @@ def login_user(
 
 
 @user_router.get(
-    "/v1/last_activity", status_code=status.HTTP_200_OK, response_model=LastVisitResponse
+    "/v1/last-activity", status_code=status.HTTP_200_OK, response_model=LastVisitResponse
 )
 def last_activity_user(
     token: TokenData = Depends(AuthUser()),
     user_service: UserCRUDService = Depends(UserCRUDService),
 ):
-    return user_service.last_activity(token)
+    return user_service.last_activity(token.user_id)
+
+
+@user_router.get(
+    "/v1/last-activity-by-id/{user_id}", status_code=status.HTTP_200_OK, response_model=LastVisitResponse
+)
+def last_activity_user(
+    user_id: str,
+    user_service: UserCRUDService = Depends(UserCRUDService),
+):
+    return user_service.last_activity(user_id)

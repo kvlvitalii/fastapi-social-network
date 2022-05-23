@@ -35,10 +35,10 @@ class UserCRUDService:
             )
         return MessageResponse(**{"message": REGISTRATION_SUCCESS})
 
-    def last_activity(self, token: TokenData):
+    def last_activity(self, user_id: str):
         last_visit = (
             self._db.query(UserLogsModel)
-            .filter(UserLogsModel.user_id == token.user_id)
+            .filter(UserLogsModel.user_id == user_id)
             .first()
         )
         if not last_visit:
